@@ -26,7 +26,7 @@ public class ResultGenerator {
     }
 //get the count of issues for the term specified in the paramater
     private int getIssuesCountForTerm(List<IssueResponseDTO> issueResponseDTOs, int i) {
-        return (issueResponseDTOs.stream().filter(issueResponseDTO -> (System.currentTimeMillis() - TimeUtility.getUTCTimeStamp(issueResponseDTO.getCreated_at())) < 86400000 * i).collect(Collectors.toList())).size();
+        return (issueResponseDTOs.stream().filter(issueResponseDTO -> (System.currentTimeMillis() - TimeUtility.getUTCTimeStamp(issueResponseDTO.getCreated_at())) <= 86400000 * i).collect(Collectors.toList())).size();
     }
 }
 
